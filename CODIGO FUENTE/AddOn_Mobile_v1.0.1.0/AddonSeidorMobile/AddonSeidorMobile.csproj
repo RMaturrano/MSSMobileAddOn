@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AddonSeidorMobile</RootNamespace>
+    <AssemblyName>AddonSeidorMobile</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Encrypt_Decrypt">
+      <HintPath>..\..\Encrypt_Decrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="commons\Constantes.cs" />
+    <Compile Include="commons\Consultas.cs" />
+    <Compile Include="commons\EstructuraDatos.cs" />
+    <Compile Include="commons\FormCommon.cs" />
+    <Compile Include="commons\FormName.cs" />
+    <Compile Include="commons\IForm.cs" />
+    <Compile Include="conexion\Conexion.cs" />
+    <Compile Include="dao\ActividadDAO.cs" />
+    <Compile Include="dao\ClienteDAO.cs" />
+    <Compile Include="dao\DevolucionDAO.cs" />
+    <Compile Include="dao\EmpresaDAO.cs" />
+    <Compile Include="dao\EquipoDAO.cs" />
+    <Compile Include="dao\LogDAO.cs" />
+    <Compile Include="dao\MenuAppDAO.cs" />
+    <Compile Include="dao\NotaCreditoDAO.cs" />
+    <Compile Include="dao\OrdenVentaDAO.cs" />
+    <Compile Include="dao\PagoDAO.cs" />
+    <Compile Include="dao\PermisoDAO.cs" />
+    <Compile Include="dao\SeriesDAO.cs" />
+    <Compile Include="dao\TipoUsuarioDAO.cs" />
+    <Compile Include="dao\VendedorDAO.cs" />
+    <Compile Include="data_access\bean\StoreBean.cs" />
+    <Compile Include="data_access\StoresAddon.cs" />
+    <Compile Include="data_schema\CampoBean.cs" />
+    <Compile Include="data_schema\database\BdMobile.cs" />
+    <Compile Include="data_schema\ObjetoBean.cs" />
+    <Compile Include="data_schema\SchemaAddon.cs" />
+    <Compile Include="data_schema\TablaBean.cs" />
+    <Compile Include="data_schema\tablas\Actividad.cs" />
+    <Compile Include="data_schema\tablas\ListaPrecio.cs" />
+    <Compile Include="data_schema\tablas\Movil.cs" />
+    <Compile Include="data_schema\tablas\OrdenVenta.cs" />
+    <Compile Include="data_schema\tablas\PagosRecibidos.cs" />
+    <Compile Include="data_schema\tablas\SocioNegocio.cs" />
+    <Compile Include="data_schema\tablas\TipoUsuario.cs" />
+    <Compile Include="data_schema\tablas\Vehiculo.cs" />
+    <Compile Include="data_schema\tablas\Vendedor.cs" />
+    <Compile Include="entity\EmpresaBean.cs" />
+    <Compile Include="entity\EquipoBean.cs" />
+    <Compile Include="entity\MenuAppBean.cs" />
+    <Compile Include="entity\PermisoBean.cs" />
+    <Compile Include="entity\PermisoDetBean.cs" />
+    <Compile Include="entity\SerieBean.cs" />
+    <Compile Include="entity\TipoUsuarioBean.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="view\AsistenteConfiguracion.cs" />
+    <Compile Include="view\ConfiguracionPermisos.cs" />
+    <Compile Include="view\ConfiguracionVendedor.cs" />
+    <Compile Include="view\DocDevolucion.cs" />
+    <Compile Include="view\DocIncidencias.cs" />
+    <Compile Include="view\DocNotaCredito.cs" />
+    <Compile Include="view\DocOrdenes.cs" />
+    <Compile Include="view\DocPagos.cs" />
+    <Compile Include="view\DocZDetail.cs" />
+    <Compile Include="view\LogRegistros.cs" />
+    <Compile Include="view\MaestroCliente.cs" />
+    <Compile Include="view\MaestroEquipo.cs" />
+    <Compile Include="view\MaestroMenuApp.cs" />
+    <Compile Include="view\MaestroTipoUsuario.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="assets\modelForms\frmDetail.srf" />
+    <None Include="assets\modelForms\frmDevolucion.srf" />
+    <None Include="assets\modelForms\frmNotaCredito.srf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\Menu.xml" />
+    <EmbeddedResource Include="assets\menu_logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="assets\modelForms\frmAstCon.srf" />
+    <Content Include="assets\modelForms\frmClientes.srf" />
+    <Content Include="assets\modelForms\frmIncidencia.srf" />
+    <Content Include="assets\modelForms\frmLog.srf" />
+    <Content Include="assets\modelForms\frmOrden.srf" />
+    <Content Include="assets\modelForms\frmPago.srf" />
+    <Content Include="assets\modelForms\frmPermisos.srf" />
+    <Content Include="assets\modelForms\frmTipoUsuario.srf" />
+    <Content Include="assets\modelForms\frmCnfg.srf" />
+    <Content Include="assets\modelForms\frmEquipo.srf" />
+    <Content Include="assets\modelForms\frmMenu.srf" />
+    <Content Include="assets\modelForms\frmProv.srf" />
+    <Content Include="assets\modelForms\frmVendedor.srf" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SAPbobsCOM">
+      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30090}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SAPbouiCOM">
+      <Guid>{6048236A-956D-498D-A6F1-9C81C13AB6E8}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

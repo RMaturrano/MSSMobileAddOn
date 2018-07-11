@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AddOnRegData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SlientInstallation="No" SlientUpgrade="No" Partnernmsp="MSS" SchemaVersion="" Type="" MultipleVersion="false" OnDemand="" OnPremise="" ExtName="AddOnMobile" ExtVersion="1.01.0" Contdata="" Partner="MSS Seidor Perú SAC" DBType="HANA" ClientType="A">
+  <Validity>
+    <SBOCompatibility>
+      <Version From="" To="" />
+    </SBOCompatibility>
+  </Validity>
+  <Configuration>
+    <Repository />
+    <Deployment>
+      <Properties />
+    </Deployment>
+    <Assignment>
+      <Properties />
+    </Assignment>
+  </Configuration>
+  <Addons>
+    <Addon Name="" Group="" ForceFlag="" Visible="" AutoAssign="" SelfUpgrd="">
+      <x86 AddonExe="C:\Users\AF-MSS784\Desktop\App Mobile Raúl M\AddOn_Mobile_v1.0.1.0\AddonSeidorMobile\bin\Debug\AddonSeidorMobile.exe" AddonSig="">
+        <Installation>
+          <Files>
+            <File FileName="AddonProvisionGasto.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="assets\menu_logo.jpg">
+              <Actions />
+            </File>
+          </Files>
+        </Installation>
+        <Uninstallation>
+          <Files>
+            <File FileName="AddonProvisionGasto.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="assets\menu_logo.jpg">
+              <Actions />
+            </File>
+          </Files>
+        </Uninstallation>
+      </x86>
+      <x64 AddonExe="C:\Users\AF-MSS784\Desktop\App Mobile Raúl M\AddOn_Mobile_v1.0.1.0\AddonSeidorMobile\bin\Debug\AddonSeidorMobile.exe" AddonSig="">
+        <Installation>
+          <Files>
+            <File FileName="AddonProvisionGasto.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="assets\menu_logo.jpg">
+              <Actions />
+            </File>
+          </Files>
+        </Installation>
+        <Uninstallation>
+          <Files>
+            <File FileName="AddonProvisionGasto.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonProvisionGasto.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.b1s">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.pdb">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="AddonSeidorMobile.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="assets\menu_logo.jpg">
+              <Actions />
+            </File>
+          </Files>
+        </Uninstallation>
+      </x64>
+    </Addon>
+  </Addons>
+  <XApps>
+    <XApp Name="" Path="" FileName="" />
+  </XApps>
+  <UDQs>
+    <UDQ udqname="">
+      <Hana FileName="" />
+    </UDQ>
+  </UDQs>
+</AddOnRegData>
