@@ -206,7 +206,7 @@ namespace AddonSeidorMobile.data_schema.tablas
                 nombre_campo = "MSS_FREC",
                 descrp_campo = "Frecuencia",
                 tipo_campo = SAPbobsCOM.BoFieldTypes.db_Alpha,
-                tamano = 1,
+                tamano = 3,
                 validValues = new string[] { "000", "101", "102", "103" },
                 validDescription = new string[] { "-", "Semanal", "Quincenal", "Mensual" },
                 valorPorDef = "000"
