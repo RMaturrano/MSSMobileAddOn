@@ -123,6 +123,7 @@ namespace AddonSeidorMobile.conexion
 
             SAPbouiCOM.EventFilter filtroCFL = filtros.Add(SAPbouiCOM.BoEventTypes.et_CHOOSE_FROM_LIST);
             filtroCFL.AddEx(FormName.CFG_VENDEDOR);
+            filtroCFL.AddEx(FormName.AST_CONFIGURACION);
 
             SAPbouiCOM.EventFilter filtroRightClick = filtros.Add(SAPbouiCOM.BoEventTypes.et_RIGHT_CLICK);
             filtroRightClick.AddEx(FormName.MAESTRO_EQUIPOS);

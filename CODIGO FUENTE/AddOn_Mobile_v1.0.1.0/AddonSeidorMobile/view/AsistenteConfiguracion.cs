@@ -25,6 +25,10 @@ namespace AddonSeidorMobile.view
         SAPbouiCOM.UserDataSource udsEstadoOrden;
         SAPbouiCOM.UserDataSource udsEstadoPago;
         SAPbouiCOM.UserDataSource udsMotivoTraslado;
+        SAPbouiCOM.UserDataSource udsActLocalizacion;
+        SAPbouiCOM.UserDataSource udsCtaTransferencia;
+        SAPbouiCOM.UserDataSource udsCtaEfectivo;
+        SAPbouiCOM.UserDataSource udsCtaCheque;
         SAPbouiCOM.EditText edtSociedad;
         SAPbouiCOM.EditText edtDescripcion;
         SAPbouiCOM.EditText edtUsuario;
@@ -32,6 +36,7 @@ namespace AddonSeidorMobile.view
         SAPbouiCOM.EditText edtIdInterno;
         SAPbouiCOM.EditText edtMaxLineasOrdn;
         SAPbouiCOM.EditText edtMotivoTraslado;
+        SAPbouiCOM.EditText edtPais;
         SAPbouiCOM.ComboBox cboEstado;
         SAPbouiCOM.ComboBox cboCondicion;
         SAPbouiCOM.ComboBox cboEstOrden;
@@ -48,6 +53,10 @@ namespace AddonSeidorMobile.view
         private const string UDS_EST_ORDR = "UD_4";
         private const string UDS_EST_ORCT = "UD_5";
         private const string UDS_MOTIVO_TRASLADO = "UD_7";
+        private const string UDS_ACT_LOCALIZACION = "UD_LOC";
+        private const string UDS_CTA_TRANSFERENCIA = "UD_AC1";
+        private const string UDS_CTA_EFECTIVO = "UD_AC2";
+        private const string UDS_CTA_CHEQUE = "UD_AC3";
         private const string EDT_SOCIEDAD = "p1Emp";
         private const string EDT_DESCRIPCION = "p1Des";
         private const string EDT_USUARIO = "p1Usr";
@@ -63,6 +72,10 @@ namespace AddonSeidorMobile.view
         private const string BASE_NO_REGISTRADA = "01";
         private const string ACTIVO = "A";
         private const string INACTIVO = "I";
+        private const string EDT_PAIS = "Item_24";
+        private const string EDT_CTA_TRANSFERENCIA = "Item_31";
+        private const string EDT_CTA_EFECTIVO = "Item_32";
+        private const string EDT_CTA_CHEQUE = "Item_33";
         #endregion
 
         //PANEL 2:
@@ -113,12 +126,17 @@ namespace AddonSeidorMobile.view
             edtIdInterno = mForm.Items.Item(EDT_IDINTERNO).Specific;
             edtMaxLineasOrdn = mForm.Items.Item(EDT_MAXLINEAS).Specific;
             edtMotivoTraslado = mForm.Items.Item(EDT_MOT_TRASLADO).Specific;
+            edtPais = mForm.Items.Item(EDT_PAIS).Specific;
             cboEstado = mForm.Items.Item(CBO_ESTADO).Specific;
             cboCondicion = mForm.Items.Item(CBO_CONDICION).Specific;
             cboEstOrden = mForm.Items.Item(CBO_EST_ORDR).Specific;
             cboEstPago = mForm.Items.Item(CBO_EST_ORCT).Specific;
             btnRegistrar = mForm.Items.Item(BTN_REGISTRAR).Specific;
             btnP1Siguiente = mForm.Items.Item(BTN_P1NEXT).Specific;
+            udsActLocalizacion = mForm.DataSources.UserDataSources.Item(UDS_ACT_LOCALIZACION);
+            udsCtaTransferencia = mForm.DataSources.UserDataSources.Item(UDS_CTA_TRANSFERENCIA);
+            udsCtaEfectivo = mForm.DataSources.UserDataSources.Item(UDS_CTA_EFECTIVO);
+            udsCtaCheque = mForm.DataSources.UserDataSources.Item(UDS_CTA_CHEQUE);
 
             edtCodigoMenu = mForm.Items.Item(EDT_CODIGO_MENU).Specific;
             edtDescrpMenu = mForm.Items.Item(EDT_DESCRIPCION_MENU).Specific;
@@ -140,12 +158,17 @@ namespace AddonSeidorMobile.view
                     edtPassword.Value = mEmpresa.password;
                     edtIdInterno.Value = mEmpresa.id.ToString();
                     edtMaxLineasOrdn.Value = mEmpresa.maximoLineas.ToString();
+                    edtPais.Value = mEmpresa.pais;
 
                     udsCondicionSociedad.Value = BASE_REGISTRADA;
                     udsEstadoSociedad.Value = mEmpresa.estado;
                     udsEstadoOrden.Value = mEmpresa.estadoOrden;
                     udsEstadoPago.Value = mEmpresa.estadoPago;
                     udsMotivoTraslado.Value = mEmpresa.motivoTraslado;
+                    udsActLocalizacion.Value = mEmpresa.localizacion;
+                    udsCtaTransferencia.Value = mEmpresa.ctaPagoTransferencia;
+                    udsCtaEfectivo.Value = mEmpresa.ctaPagoEfectivo;
+                    udsCtaCheque.Value = mEmpresa.ctaPagoCheque;
 
                     btnRegistrar.Caption = "Actualizar";
                     udsEstadoConfiguracion.Value = "Y";
@@ -169,6 +192,7 @@ namespace AddonSeidorMobile.view
                 udsEstadoConfiguracion.Value = "N";
                 udsEstadoOrden.Value = "02";
                 udsEstadoPago.Value = "02";
+                udsActLocalizacion.Value = "N";
 
                 btnP1Siguiente.Item.Enabled = false;
             }
@@ -232,6 +256,46 @@ namespace AddonSeidorMobile.view
                         }
                     }
                 }
+                else if (itemEvent.ItemUID.Equals(EDT_PAIS) && !itemEvent.BeforeAction &&
+                       itemEvent.EventType == SAPbouiCOM.BoEventTypes.et_CHOOSE_FROM_LIST)
+                {
+                    var selectedObjects = ((SAPbouiCOM.ChooseFromListEvent)itemEvent).SelectedObjects;
+
+                    if (selectedObjects != null)
+                    {
+                        mForm.DataSources.UserDataSources.Item("UD_9").Value = selectedObjects.GetValue("Code", 0).ToString().Trim();
+                    }
+                }
+                else if (itemEvent.ItemUID.Equals(EDT_CTA_TRANSFERENCIA) && !itemEvent.BeforeAction &&
+                       itemEvent.EventType == SAPbouiCOM.BoEventTypes.et_CHOOSE_FROM_LIST)
+                {
+                    var selectedObjects = ((SAPbouiCOM.ChooseFromListEvent)itemEvent).SelectedObjects;
+
+                    if (selectedObjects != null)
+                    {
+                        udsCtaTransferencia.Value = selectedObjects.GetValue("AcctCode", 0).ToString().Trim();
+                    }
+                }
+                else if (itemEvent.ItemUID.Equals(EDT_CTA_EFECTIVO) && !itemEvent.BeforeAction &&
+                       itemEvent.EventType == SAPbouiCOM.BoEventTypes.et_CHOOSE_FROM_LIST)
+                {
+                    var selectedObjects = ((SAPbouiCOM.ChooseFromListEvent)itemEvent).SelectedObjects;
+
+                    if (selectedObjects != null)
+                    {
+                        udsCtaEfectivo.Value = selectedObjects.GetValue("AcctCode", 0).ToString().Trim();
+                    }
+                }
+                else if (itemEvent.ItemUID.Equals(EDT_CTA_CHEQUE) && !itemEvent.BeforeAction &&
+                       itemEvent.EventType == SAPbouiCOM.BoEventTypes.et_CHOOSE_FROM_LIST)
+                {
+                    var selectedObjects = ((SAPbouiCOM.ChooseFromListEvent)itemEvent).SelectedObjects;
+
+                    if (selectedObjects != null)
+                    {
+                        udsCtaCheque.Value = selectedObjects.GetValue("AcctCode", 0).ToString().Trim();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -280,7 +344,12 @@ namespace AddonSeidorMobile.view
                         maximoLineas = int.Parse(edtMaxLineasOrdn.Value.Trim()),
                         estadoOrden = cboEstOrden.Selected.Value.Trim(),
                         estadoPago = cboEstPago.Selected.Value.Trim(),
-                        motivoTraslado = edtMotivoTraslado.Value.Trim()}))
+                        motivoTraslado = edtMotivoTraslado.Value.Trim(),
+                        pais = edtPais.Value.Trim(),
+                        localizacion = udsActLocalizacion.Value.Trim(),
+                        ctaPagoTransferencia = udsCtaTransferencia.Value.Trim(),
+                        ctaPagoEfectivo = udsCtaEfectivo.Value.Trim(),
+                        ctaPagoCheque = udsCtaCheque.Value.Trim()}))
                     {
                         StatusMessageSuccess("Datos de la sociedad registrados con éxito");
                         iniciarValoresPorDefecto();
@@ -307,8 +376,12 @@ namespace AddonSeidorMobile.view
                                                                 maximoLineas = int.Parse(edtMaxLineasOrdn.Value.Trim()),
                                                                 estadoOrden = cboEstOrden.Selected.Value.Trim(),
                                                                 estadoPago = cboEstPago.Selected.Value.Trim(),
-                                                                motivoTraslado = edtMotivoTraslado.Value.Trim()
-                                                            }))
+                                                                motivoTraslado = edtMotivoTraslado.Value.Trim(),
+                                                                pais = edtPais.Value.Trim(),
+                                                                localizacion = udsActLocalizacion.Value.Trim(),
+                                                                ctaPagoTransferencia = udsCtaTransferencia.Value.Trim(),
+                                                                ctaPagoEfectivo = udsCtaEfectivo.Value.Trim(),
+                                                                ctaPagoCheque = udsCtaCheque.Value.Trim()}))
                     {
                         StatusMessageSuccess("Datos de la sociedad actualizados con éxito");
                         iniciarValoresPorDefecto();
@@ -364,6 +437,25 @@ namespace AddonSeidorMobile.view
                 {
                     res = false;
                     StatusMessageError("Debe seleccionar el tipo de recepción de pagos desde la aplicación.");
+                }else if (string.IsNullOrEmpty(edtPais.Value))
+                {
+                    res = false;
+                    StatusMessageError("Debe seleccionar un país.");
+                }
+                else if (string.IsNullOrEmpty(udsCtaTransferencia.Value))
+                {
+                    res = false;
+                    StatusMessageError("Debe seleccionar una cuenta para el tipo de pago 'Transferencia/Depósito'.");
+                }
+                else if (string.IsNullOrEmpty(udsCtaEfectivo.Value))
+                {
+                    res = false;
+                    StatusMessageError("Debe seleccionar una cuenta para el tipo de pago 'Efectivo'");
+                }
+                else if (string.IsNullOrEmpty(udsCtaCheque.Value))
+                {
+                    res = false;
+                    StatusMessageError("Debe seleccionar una cuenta para el tipo de pago 'Cheque'");
                 }
             }
             catch (Exception ex)

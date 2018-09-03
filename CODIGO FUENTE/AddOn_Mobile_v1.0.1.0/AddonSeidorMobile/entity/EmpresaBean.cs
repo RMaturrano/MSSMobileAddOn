@@ -17,5 +17,10 @@ namespace AddonSeidorMobile.entity
         public string estadoOrden { get; set; }
         public string estadoPago { get; set; }
         public string motivoTraslado { get; set; }
+        public string pais { get; set; }
+        public string localizacion { get; set; }
+        public string ctaPagoTransferencia { get; set; }
+        public string ctaPagoEfectivo { get; set; }
+        public string ctaPagoCheque { get; set; }
     }
 }

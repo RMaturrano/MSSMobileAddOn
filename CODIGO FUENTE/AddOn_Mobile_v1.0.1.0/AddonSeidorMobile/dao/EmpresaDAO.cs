@@ -19,10 +19,13 @@ namespace AddonSeidorMobile.dao
             try
             {
                 string query = "INSERT INTO " + BdMobile.BD_NAME + "." + BdMobile.TB_EMPRESAS + " (\"id\", \"descripcion\", \"base_datos\", \"estado\",  " +
-                            " \"usuario\", \"clave\", \"observacion\", \"LINEAS_ORDR\", \"EST_ORDR\", \"EST_ORCT\", \"MOTIVO\")  " +
+                            " \"usuario\", \"clave\", \"observacion\", \"LINEAS_ORDR\", \"EST_ORDR\", \"EST_ORCT\", \"MOTIVO\", \"PAIS\", \"LOCALIZACION\", " +
+                            " \"CTA_TRANSFERENCIA\", \"CTA_EFECTIVO\", \"CTA_CHEQUE\")  " +
                             " VALUES(" + obtenerUltimoId() + ", '" + bean.descripcion + "', '" + bean.base_datos + "', '" +
                                 bean.estado + "', '" + bean.usuario + "', '" + bean.password + "', '', " +
-                                bean.maximoLineas + ", '" + bean.estadoOrden + "', '" + bean.estadoPago + "', '"+bean.motivoTraslado+"')";
+                                bean.maximoLineas + ", '" + bean.estadoOrden + "', '" + bean.estadoPago + "', '"+
+                                bean.motivoTraslado+ "', '" + bean.pais + "'" + ", '" + bean.localizacion + "'," +
+                                bean.ctaPagoTransferencia + "', '" + bean.ctaPagoEfectivo + "'" + ", '" + bean.ctaPagoCheque + "')";
 
                 mRS = Conexion.company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
                 mRS.DoQuery(query);
@@ -52,7 +55,10 @@ namespace AddonSeidorMobile.dao
                 mRS.DoQuery("update " + BdMobile.BD_NAME + "." + BdMobile.TB_EMPRESAS + " SET \"descripcion\" = '" + bean.descripcion + "', " +
                                 "	 \"estado\" = '" + bean.estado + "', \"usuario\" = '" + bean.usuario + "', \"clave\" = '" + bean.password + "', " +
                                 "	 \"LINEAS_ORDR\" = " + bean.maximoLineas + ", \"EST_ORDR\" = '" + bean.estadoOrden + "', " + 
-                                "    \"EST_ORCT\" = '" + bean.estadoPago + "', \"MOTIVO\" = '" + bean.motivoTraslado + "' " +
+                                "    \"EST_ORCT\" = '" + bean.estadoPago + "', \"MOTIVO\" = '" + bean.motivoTraslado + "', " +
+                                "    \"PAIS\" = '" + bean.pais + "', \"LOCALIZACION\" = '" + bean.localizacion + "', " +
+                                "    \"CTA_TRANSFERENCIA\" = '" + bean.ctaPagoTransferencia + "', \"CTA_EFECTIVO\" = '" + bean.ctaPagoEfectivo + "', " +
+                                "    \"CTA_CHEQUE\" = '" + bean.ctaPagoCheque + "' " +
                                 "    where \"id\" = " + bean.id);
             }
             catch (Exception e)
@@ -124,6 +130,11 @@ namespace AddonSeidorMobile.dao
                     bean.estadoOrden = oRS.Fields.Item("EST_ORDR").Value.ToString().Trim();
                     bean.estadoPago = oRS.Fields.Item("EST_ORCT").Value.ToString().Trim();
                     bean.motivoTraslado = oRS.Fields.Item("MOTIVO").Value.ToString().Trim();
+                    bean.pais = oRS.Fields.Item("PAIS").Value.ToString().Trim();
+                    bean.localizacion = oRS.Fields.Item("LOCALIZACION").Value.ToString().Trim();
+                    bean.ctaPagoTransferencia = oRS.Fields.Item("CTA_TRANSFERENCIA").Value.ToString().Trim();
+                    bean.ctaPagoEfectivo = oRS.Fields.Item("CTA_EFECTIVO").Value.ToString().Trim();
+                    bean.ctaPagoCheque = oRS.Fields.Item("CTA_CHEQUE").Value.ToString().Trim();
                 }
             }
             catch (Exception ex)
