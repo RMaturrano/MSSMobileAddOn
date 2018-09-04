@@ -3,13 +3,10 @@ using AddonSeidorMobile.conexion;
 using AddonSeidorMobile.data_schema.database;
 using AddonSeidorMobile.entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AddonSeidorMobile.dao
 {
-    public class EmpresaDAO: FormCommon
+    public class EmpresaDAO : FormCommon
     {
         public static bool registrar(EmpresaBean bean)
         {
@@ -23,8 +20,8 @@ namespace AddonSeidorMobile.dao
                             " \"CTA_TRANSFERENCIA\", \"CTA_EFECTIVO\", \"CTA_CHEQUE\")  " +
                             " VALUES(" + obtenerUltimoId() + ", '" + bean.descripcion + "', '" + bean.base_datos + "', '" +
                                 bean.estado + "', '" + bean.usuario + "', '" + bean.password + "', '', " +
-                                bean.maximoLineas + ", '" + bean.estadoOrden + "', '" + bean.estadoPago + "', '"+
-                                bean.motivoTraslado+ "', '" + bean.pais + "'" + ", '" + bean.localizacion + "'," +
+                                bean.maximoLineas + ", '" + bean.estadoOrden + "', '" + bean.estadoPago + "', '" +
+                                bean.motivoTraslado + "', '" + bean.pais + "'" + ", '" + bean.localizacion + "','" +
                                 bean.ctaPagoTransferencia + "', '" + bean.ctaPagoEfectivo + "'" + ", '" + bean.ctaPagoCheque + "')";
 
                 mRS = Conexion.company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
@@ -54,7 +51,7 @@ namespace AddonSeidorMobile.dao
                 mRS = Conexion.company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
                 mRS.DoQuery("update " + BdMobile.BD_NAME + "." + BdMobile.TB_EMPRESAS + " SET \"descripcion\" = '" + bean.descripcion + "', " +
                                 "	 \"estado\" = '" + bean.estado + "', \"usuario\" = '" + bean.usuario + "', \"clave\" = '" + bean.password + "', " +
-                                "	 \"LINEAS_ORDR\" = " + bean.maximoLineas + ", \"EST_ORDR\" = '" + bean.estadoOrden + "', " + 
+                                "	 \"LINEAS_ORDR\" = " + bean.maximoLineas + ", \"EST_ORDR\" = '" + bean.estadoOrden + "', " +
                                 "    \"EST_ORCT\" = '" + bean.estadoPago + "', \"MOTIVO\" = '" + bean.motivoTraslado + "', " +
                                 "    \"PAIS\" = '" + bean.pais + "', \"LOCALIZACION\" = '" + bean.localizacion + "', " +
                                 "    \"CTA_TRANSFERENCIA\" = '" + bean.ctaPagoTransferencia + "', \"CTA_EFECTIVO\" = '" + bean.ctaPagoEfectivo + "', " +
@@ -189,7 +186,7 @@ namespace AddonSeidorMobile.dao
             try
             {
                 oRS = Conexion.company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                oRS.DoQuery("select \"id\" as \"Result\" from " + BdMobile.BD_NAME + "." + BdMobile.TB_EMPRESAS + " where \"base_datos\" = '"+Conexion.company.CompanyDB+"'");
+                oRS.DoQuery("select \"id\" as \"Result\" from " + BdMobile.BD_NAME + "." + BdMobile.TB_EMPRESAS + " where \"base_datos\" = '" + Conexion.company.CompanyDB + "'");
 
                 if (oRS.RecordCount > 0)
                 {
