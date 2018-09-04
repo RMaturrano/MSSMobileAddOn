@@ -153,6 +153,15 @@ namespace AddonSeidorMobile.data_schema.tablas
                 valorPorDef = "03"
             });
 
+            myList.Add(new CampoBean()
+            {
+                nombre_tabla = TABLA_CABE,
+                nombre_campo = "MSSM_IMG",
+                descrp_campo = "Foto",
+                tipo_campo = SAPbobsCOM.BoFieldTypes.db_Memo,
+                subtipo_campo = SAPbobsCOM.BoFldSubTypes.st_Image
+            });
+
             return myList;
         }
 
