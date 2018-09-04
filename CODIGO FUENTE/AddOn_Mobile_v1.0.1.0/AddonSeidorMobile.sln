@@ -1,20 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddonSeidorMobile", "AddonSeidorMobile\AddonSeidorMobile.csproj", "{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|x64.ActiveCfg = Debug|x64
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|x64.Build.0 = Debug|x64
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|x86.ActiveCfg = Debug|x86
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Debug|x86.Build.0 = Debug|x86
 		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|x64.ActiveCfg = Release|Any CPU
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|x64.Build.0 = Release|Any CPU
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|x86.ActiveCfg = Release|Any CPU
+		{D8361C9F-8CD0-43A7-872F-EFD43FEA8E34}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DEAB054-4673-49C0-B955-4B681D4D9305}
 	EndGlobalSection
 EndGlobal
