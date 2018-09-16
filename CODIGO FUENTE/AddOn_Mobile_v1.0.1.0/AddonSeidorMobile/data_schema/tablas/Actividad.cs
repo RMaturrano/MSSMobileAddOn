@@ -2,8 +2,6 @@
 using AddonSeidorMobile.conexion;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AddonSeidorMobile.data_schema.tablas
 {
@@ -186,12 +184,12 @@ namespace AddonSeidorMobile.data_schema.tablas
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(Constantes.PREFIX_MSG_ADDON + 
+                System.Windows.Forms.MessageBox.Show(Constantes.PREFIX_MSG_ADDON +
                     " Error creando el tipo de actividad " + newType + " ! " + e.Message);
             }
             finally
             {
-                if(type != null)
+                if (type != null)
                     LiberarObjetoGenerico(type);
                 LiberarObjetoGenerico(oRS);
             }

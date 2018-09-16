@@ -1,8 +1,5 @@
-﻿using System;
+﻿using AddonSeidorMobile.data_schema.tablas;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AddonSeidorMobile.data_schema.tablas;
 
 namespace AddonSeidorMobile.data_schema
 {
@@ -38,6 +35,8 @@ namespace AddonSeidorMobile.data_schema
             campos.AddRange(SocioNegocio.getCamposTablaDirecciones());
             campos.AddRange(ListaPrecio.getCamposTabla());
             campos.AddRange(Actividad.getCamposTabla());
+            campos.AddRange(Almacen.getCamposTabla());
+            campos.AddRange(Articulo.getCamposTabla());
 
             return campos;
         }

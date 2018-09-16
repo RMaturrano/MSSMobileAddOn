@@ -112,6 +112,8 @@
     <Compile Include="data_schema\SchemaAddon.cs" />
     <Compile Include="data_schema\TablaBean.cs" />
     <Compile Include="data_schema\tablas\Actividad.cs" />
+    <Compile Include="data_schema\tablas\Almacen.cs" />
+    <Compile Include="data_schema\tablas\Articulo.cs" />
     <Compile Include="data_schema\tablas\ListaPrecio.cs" />
     <Compile Include="data_schema\tablas\Movil.cs" />
     <Compile Include="data_schema\tablas\OrdenVenta.cs" />
